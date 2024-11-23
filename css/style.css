@@ -1,0 +1,557 @@
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+}
+
+body {
+  color: #333;
+  font-family: "游ゴシック体", "YuGothic", "游ゴシック Medium",
+    "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+  display: inline-block;
+  object-fit: cover;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+}
+
+body {
+  color: #333;
+}
+img {
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+main {
+  overflow: hidden;
+}
+/*
+コンテンツ幅を設定するための共通クラス
+*/
+.container {
+  max-width: 1000px;
+  padding: 0 5%;
+  margin: 0 auto;
+}
+/* header */
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  position: fixed;
+  z-index: 10;
+  background-color: #fff;
+}
+header .logo {
+  width: 50px;
+  height: 50px;
+}
+header .logo a {
+  display: block;
+}
+
+/* ハンバーガーメニュー */
+
+.hamburger {
+  width: 40px;
+  height: 40px;
+  transition: all 0.5s;
+  cursor: pointer;
+  z-index: 20;
+  position: relative;
+  cursor: pointer;
+}
+
+.hamburger:hover {
+  opacity: 0.7;
+}
+
+/* ハンバーガーメニューの線の設定（メニューが閉じている時） */
+.hamburger span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  border-radius: 4px;
+  transition: all 0.5s;
+}
+
+/* 1本目の線の位置を設定 */
+.hamburger span:nth-child(1) {
+  top: 22%;
+}
+
+/* 2本目の線の位置を設定 */
+.hamburger span:nth-child(2) {
+  top: 50%;
+}
+
+/* 3本目の線の位置を設定 */
+.hamburger span:nth-child(3) {
+  top: 78%;
+}
+
+/*
+ハンバーガーメニューの線の設定（メニューが開いている時）
+1本目の線を-45度回転
+*/
+.open .hamburger span:nth-child(1) {
+  top: 50%;
+  transform: rotate(-45deg);
+}
+
+/* 2本目と3本目は重ねて45度回転 */
+.open .hamburger span:nth-child(2),
+.open .hamburger span:nth-child(3) {
+  top: 50%;
+  transform: rotate(45deg);
+}
+/* メニューの設定 */
+#navi {
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f9e0;
+  color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  text-align: center;
+  transition: all 0.6s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.open #navi {
+  opacity: 1;
+  visibility: visible;
+}
+
+#navi h1 {
+  margin-top: 115px;
+  margin-bottom: 60px;
+  color: #333;
+}
+#navi .nav-menu {
+  margin-bottom: 30px;
+}
+
+#navi ul.nav-menu li {
+  padding: 5px 0;
+  font-size: 14px;
+}
+#navi ul.nav-sns li {
+  padding: 5px 0;
+  font-size: 12px;
+}
+#mv {
+  padding-top: 100px;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../img/mv_11.jpg);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+#mv h2 {
+  font-size: 46px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+#concept {
+  padding: 70px 0;
+  background-color: #f0f9e0;
+}
+h3 {
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+}
+
+#menu {
+  padding: 70px 0;
+
+  background-color: #f0f9e0;
+}
+
+.menu-img {
+  background-image: url(../img/backimg1_11zon.webp);
+}
+/* 共通 */
+.fixed-bg {
+  height: 250px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+#food,
+#dessert {
+  padding: 70px 16px 0px 16px;
+}
+#food .container p,
+#dessert .container p {
+  font-size: 0.6rem;
+  text-align: right;
+  margin-bottom: 20px;
+}
+/* フェードイン food dessert共通*/
+.fadein {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s;
+}
+/* 共通　food dessert */
+.grid {
+  max-width: 1240px;
+  margin: 0 auto 70px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+#food .grid .food-menu,
+#dessert .grid .dessert-menu {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px 4px #ccc;
+  background-color: #ccc;
+}
+#food .grid img,
+#dessert .grid img {
+  max-height: 265px;
+  width: 100%;
+  object-fit: cover;
+}
+#food .grid .food-content,
+#dessert .grid .dessert-content {
+  padding: 30px;
+}
+
+#food .grid .name,
+#dessert .grid .name {
+  margin-bottom: 20px;
+}
+#food .grid .text {
+  margin-bottom: 20px;
+}
+
+#food .grid .price,
+#dessert .grid .price {
+  font-size: 0.75rem;
+}
+.food-img {
+  background-image: url(../img/backimg2_11zon.webp);
+  background-position: top;
+}
+
+/* ページページ food1.html *下層ページ */
+#food1{
+  padding-top: 170px;
+  background-color: #f0f9e0;
+  padding-bottom: 50px;
+
+}
+#food1 .food1-flex{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+#food1 .food1-flex .photo{
+  width: 45%;
+}
+#food1 .food1-flex .food-text{
+  width: 45%;
+  font-size: .9rem;
+}
+#food1 .food1-flex .food-text p{
+  margin-bottom: 20px;
+}
+#food1 .container a{
+  display: block;
+  text-align: center;
+  font-size: .7rem;
+}
+
+
+
+
+
+.dessert-img {
+  background-image: url(../img/backimg3.webp);
+  background-position: center;
+}
+.drink-img {
+  background-image: url(../img/backimg4_11zon\ \(1\).jpg);
+  background-position: center;
+}
+
+#drink {
+  padding: 70px 0 120px 0;
+  background-color: #f0f9e0;
+}
+#drink dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+#drink dl .sab {
+  padding-left: 20px;
+}
+
+#drink dt {
+  padding: 5px 0;
+  width: 85%;
+  text-align: left;
+}
+#drink dd {
+  width: 15%;
+  text-align: left;
+}
+
+#access {
+  padding: 70px 0 120px 0;
+  background-color: #f0f9e0;
+}
+#access .access-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 50px;
+}
+#access .map {
+  width: 55%;
+}
+
+/* グーグルマップのサイズを設定 */
+#access .map iframe {
+  width: 100%;
+  height: 300px;
+}
+#access .access-right {
+  width: 45%;
+}
+
+#access dl {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.7rem;
+}
+#access .open,
+#access .address {
+  margin-bottom: 30px;
+  /* position: relative; */
+}
+#access dd:last-of-type {
+  padding-bottom: 15px;
+  border-bottom: solid 1px #d9d9d9;
+}
+
+#access dt:last-of-type {
+  padding-bottom: 15px;
+  border-bottom: solid 1px #d9d9d9;
+}
+
+/* #access .open::after,
+#access .address::after {
+  position: absolute;
+  content: "";
+  width: 220px;
+  height: 1px;
+  background-color: #d9d9d9;
+  bottom: -15px;
+  margin: 0 auto;
+} */
+
+#access dt {
+  width: 40%;
+}
+#access dd {
+  width: 60%;
+}
+#access p {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+#contact {
+  padding: 70px 0 70px 0;
+  background-color: #ccc;
+}
+#contact .contact-flex {
+  display: flex;
+  justify-content: space-between;
+}
+#contact .contact-text p {
+  margin-bottom: 30px;
+}
+#contact .contact-text,
+#contact .contact-form {
+  width: 45%;
+}
+#contact .contact-form input,
+#contact .contact-form textarea {
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+#contact .contact-form .button input {
+  width: 170px;
+  color: #333;
+  background-color: #fff;
+  border: solid 1px #ccc;
+  padding: 5px 0;
+  margin-bottom: 0;
+}
+#contact .contact-form .button {
+  text-align: center;
+}
+
+#contact .contact-form .button input:hover {
+  background-color: #f0f9e0;
+}
+#footer {
+  color: #333;
+  background-color: #fff;
+  text-align: center;
+  padding: 35px;
+  font-size: 0.75rem;
+}
+#footer .to-top {
+  width: 50px;
+  height: 50px;
+  /* border: solid 1px #fff; */
+  background-color: #333;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+}
+
+/*
+  中の三角は疑似要素で作成
+  */
+.to-top::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  border-width: 0px 5px 8.66px 5px;
+  position: absolute;
+  bottom: 46%;
+  right: 39%;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 3%;
+  }
+  #header {
+    padding: 20px 16px;
+  }
+
+  .hamburger {
+    right: 20px;
+  }
+  #mv h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  #concept,
+  #menu {
+    padding: 50px 0;
+  }
+  #concept p,
+  #menu p {
+    font-size: 0.8rem;
+  }
+
+  #food .grid .food-menu,
+  #dessert .grid .dessert-menu {
+    background-color: #fff;
+  }
+  #food,
+  #dessert {
+    padding: 50px 16px 0px 16px;
+  }
+  /* food1.html */
+  #food1{
+    padding-top: 150px;
+  }
+
+  #food1 .food1-flex{
+    flex-direction: column;
+  }
+  #food1 .food1-flex .photo{
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  #food1 .food1-flex .food-text{
+    width: 100%;
+  font-size: .8rem;
+
+  }
+  #drink,
+  #access,
+  #contact {
+    padding: 50px 0 50px 0;
+  }
+  #drink dl {
+    font-size: 0.7rem;
+  }
+  #drink dl .sab {
+    padding-left: 5px;
+  }
+  #drink dt {
+    width: 90%;
+  }
+  #drink dd {
+    width: 10%;
+  }
+  #access .access-flex {
+    flex-direction: column;
+    gap: 30px 0px;
+  }
+  #access .map {
+    width: 100%;
+  }
+  #access .access-right {
+    width: 100%;
+  }
+  #access dt {
+    width: 25%;
+}
+#access dd{
+  width: 75%;
+}
+
+
+  #contact .contact-flex {
+    flex-direction: column;
+  }
+  #contact .contact-text,
+  #contact .contact-form {
+    width: 100%;
+  }
+  #contact .contact-form dt{
+    font-size: 0.9rem;
+  }
+
+  #contact .contact-text p {
+    font-size: 0.9rem;
+  }
+}
